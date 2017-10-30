@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script src='https://cdn.bootcss.com/jquery/3.2.1/jquery.js'></script>
+<script>
+$(function(){
+	var a=window.location.href;
+	var b=a.split("?")[1].split('=')[1];
+	console.log(b)
+	$.ajax({
+		url:"http://localhost:3000/item/datel",
+		type:'GET',
+		data:{abc:b},
+		success:function(e){
+			$("body").append("<p>"+e[0].centent+"</p>");
+			console.log(e)
+		}
+	})
+})
+</html>
